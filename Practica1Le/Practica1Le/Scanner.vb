@@ -25,8 +25,9 @@ Public Class Scanner
         cadena = ""
         abierto = 0
         aceptacion = False
-        lista_Token = New List(Of Token)(lista_Token)
+        lista_Token = New List(Of Token)
         aux = ""
+
         h = 0
         i = 0
         u = 0
@@ -39,8 +40,8 @@ Public Class Scanner
     Public Sub AnalizadorGeneral(ByVal cadena As String)
         Dim caracter As Char
         Dim estadoActual As Integer
-        Dim findelanalisis As Boolean = False
-        While (findelanalisis = False)
+
+        While (aceptacion = False)
             caracter = cadena.Chars(counter)
             Select Case estadoActual
                 Case 0
@@ -81,7 +82,7 @@ Public Class Scanner
                     End If
 
                 Case 3
-                    If (identificador(cadena) Or usuarios(cadena) Or Tipo(cadena)) Then
+                    If (identificador(cadena) Or usuarios(cadena) Or tipo(cadena)) Then
                         estadoActual = 4
                     Else
                         estadoActual = 3
@@ -123,17 +124,17 @@ Public Class Scanner
                 Case 9
                     aceptacion = True
                     counter += 1
-                    findelanalisis = True
-
+                    t = 1
+                    MsgBox("Hola bebé")
                 Case Else
-                    findelanalisis = False
+                    aceptacion = False
 
             End Select
         End While
 
     End Sub
 
-    Public Function conectados(ByVal analizar As String)
+    Public Function conectados(ByVal analizar As String) As Boolean
         Dim aux As String = ""
         Dim caracter As Char
         Dim estadoActual As Integer
@@ -164,12 +165,14 @@ Public Class Scanner
                         lista_Token.Add(New Token(Token.Tipo.ID, aux))
                         aux = ""
                         Return True
+                    Case Else
+                        Return False
                 End Select
             Next
         End If
         Return False
     End Function
-    Public Function usuarios(ByVal analizar As String)
+    Public Function usuarios(ByVal analizar As String) As Boolean
         Dim aux As String = ""
         Dim caracter As Char
         Dim estadoActual As Integer
@@ -208,7 +211,8 @@ Public Class Scanner
                         aux = ""
                         counter -= 1
                         Return True
-
+                    Case Else
+                        Return False
                 End Select
 
             Next
@@ -218,7 +222,7 @@ Public Class Scanner
 
         Return False
     End Function
-    Public Function tipo(ByVal analizar As String)
+    Public Function tipo(ByVal analizar As String) As Boolean
         Dim aux As String = ""
         Dim caracter As Char
         Dim estadoActual As Integer
@@ -248,12 +252,14 @@ Public Class Scanner
                         counter -= 1
                         Return True
 
+                    Case Else
+                        Return False
                 End Select
             Next
         End If
         Return False
     End Function
-    Public Function identificador(ByVal analizar As String)
+    Public Function identificador(ByVal analizar As String) As Boolean
         Dim aux As String = ""
         Dim caracter As Char
         Dim estadoActual As Integer
@@ -282,6 +288,8 @@ Public Class Scanner
                         aux = ""
                         Return True
                         counter -= 1
+                    Case Else
+                        Return False
                 End Select
             Next
 
@@ -289,7 +297,7 @@ Public Class Scanner
         Return False
     End Function
 
-    Public Function EtiquetaCerrado(ByVal analizar As String)
+    Public Function EtiquetaCerrado(ByVal analizar As String) As Boolean
         Dim aux As String = ""
         Dim caracter As Char
         Dim estadoActual As Integer
@@ -390,13 +398,15 @@ Public Class Scanner
                         Return True
                         counter -= 1
                     End If
+                Case Else
+                    Return False
             End Select
         Next
         Return False
     End Function
 
 
-    Public Function EtiquetaAbierto(ByVal analizar As String)
+    Public Function EtiquetaAbierto(ByVal analizar As String) As Boolean
         Dim aux As String = ""
         Dim caracter As Char
         Dim estadoActual As Integer
@@ -484,7 +494,7 @@ Public Class Scanner
                         counter -= 1
                     End If
                 Case Else
-
+                    Return False
             End Select
         Next
         Return False
@@ -495,7 +505,7 @@ Public Class Scanner
         Dim aux As String = ""
         Dim caracter As Char
         Dim estadoActual As Integer
-        Dim t As Token
+
         Dim salida As Boolean = False
 
 
@@ -541,6 +551,7 @@ Public Class Scanner
                         Console.WriteLine("Así va la cadena ---> " + aux)
                         salida = True
                         Return salida
+
 
                     End If
                 Case Else

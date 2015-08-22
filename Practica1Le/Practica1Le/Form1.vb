@@ -37,6 +37,7 @@ Public Class Form1
     Private Sub BotonAnalizar_Click(sender As Object, e As EventArgs) Handles BotonAnalizar.Click
         Dim cadena As String
         Dim s As New Scanner
+        s.Scanner()
         cadena = TextoAnalizar.Text
         s.AnalizadorGeneral(cadena)
 
