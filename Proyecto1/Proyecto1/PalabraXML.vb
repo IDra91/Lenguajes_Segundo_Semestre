@@ -4,6 +4,10 @@
         Articulo
         Adjetivo
         Verbo
+        Conjucion
+        Interjeccion
+        Preposicion
+        Adverbio
     End Enum
     Public catPa As categoria
     Public palabra As String
@@ -27,6 +31,16 @@
                 Return "Sustantivo"
             Case categoria.Verbo
                 Return "Verbo"
+            Case categoria.Conjucion
+                Return "conjucion"
+            Case categoria.Preposicion
+                Return "preposicion"
+            Case categoria.Interjeccion
+                Return "interjeccion"
+            Case categoria.Adverbio
+                Return "adverbio"
+            Case categoria.Preposicion
+                Return "Preposicion"
             Case Else
                 Return "Palabra"
         End Select
