@@ -1,0 +1,7 @@
+"TEXTO": { "CATEGORIA": [ { "NOMBRE": "'Sustantivo'", "PALABRA": [ "'agua'", "'persona'", "'pera'", "'persona'" "'naranja'" ]
+}, { "NOMBRE": "'Articulo'", "PALABRA": [ "'la'", "'los'", "'el'" ] }, { "NOMBRE": "'Adjetivo'", "PALABRA": [ "'blanco'", "'alto'", "'bajo'", "'bueno'", "'lento'" ] }, { "NOMBRE": "'Verbo'", "PALABRA": [ "'estudiar'", "'crecer'" "'caminar'" ] }, { "NOMBRE": "'Adverbio'", "PALABRA": [ "'concurrentemente'" ] }, { "NOMBRE": "'Pronombre'", "PALABRA": "'ellas'" }, { "NOMBRE": "'Preposicion'", "PALABRA": [ "'por'", "'de'", "'tras'", "'de'" "'de'" "'ante'" ] },
+{
+"NOMBRE": "'Conjuncion'", "PALABRA": [ "'o'", "'y'", "'o'", "'o'", "'y'" ] }, { "NOMBRE": "'Interjeccion'", "PALABRA": [ "'uf!'" ] }
+]
+}
+}
